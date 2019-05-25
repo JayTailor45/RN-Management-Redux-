@@ -1,19 +1,24 @@
 import React, {Component} from 'react';
-import {Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 import { CardSection } from './common/CardSection';
+import {Actions} from "react-native-router-flux";
 
 class ListItem extends Component {
+
+  onEmployeeSelect() {
+    Actions.employeeEdit({employee: this.props.employee});
+  }
+
   render () {
     const {name} = this.props.employee;
-
-    console.log('username  ',name)
-
     return(
-      <CardSection>
-        <Text style={styles.titleStyle}>
-          {name}
-        </Text>
-      </CardSection>
+        <TouchableOpacity onPress={this.onEmployeeSelect.bind(this)}>
+          <CardSection>
+            <Text style={styles.titleStyle}>
+              {name}
+            </Text>
+          </CardSection>
+        </TouchableOpacity>
     )
   }
 }
