@@ -35,9 +35,7 @@ class EmployeeList extends Component {
           enableEmptySections
           dataSource={this.dataSource}
           renderRow={this.renderRow}
-        >
-
-        </ListView>
+        />
     )
   }
 }
@@ -46,7 +44,6 @@ const mapStateToProps = state => {
   const employees = _.map(state.employees, (val,uid) => {
     return {...val,uid}
   });
-  console.warn('Warn', employees)
   return {employees};
 };
 
